@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="">
                                     <button type="submit" class="btn btn-info">Login</button>
-                                    <button type="submit" class="btn btn-outline-dark">Login with Github</button>
+                                    <a href="{{ url('login/github') }}" class="btn btn-outline-dark">Login with Github</a>
                                 </div>
                             </form>
                         </div>
