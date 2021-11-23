@@ -30,8 +30,7 @@ class GithubController extends Controller
     }
 
     private function findOrCreateUser($githubUser){
-        if ($authUser = User::where('github_id',
-            $githubUser->id)->first()){
+        if ($authUser = User::where('github_id', $githubUser->id)->first()){
             return $authUser;
         }
 
