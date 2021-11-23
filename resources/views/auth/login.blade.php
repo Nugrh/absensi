@@ -19,10 +19,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 pl-0">
+            <div class="col-md-5 pl-0">
                 <div class="card-white">
                     <div class="card-body border">
-                        <div class="">
+                        <div class="text-center">
                             <h1 class="fw-bolder fs-2qx text-dark pt-3">
                                 Sign in to absensi
                             </h1>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="">
                                     <button type="submit" class="btn btn-info">Login</button>
-                                    <button type="submit" class="btn btn-outline-dark">Login with Google</button>
+                                    <button type="submit" class="btn btn-outline-dark">Login with Github</button>
                                 </div>
                             </form>
                         </div>
@@ -56,8 +56,6 @@
         </div>
     </div>
 @endsection
-
-
 
 {{--@extends('layouts.app')--}}
 
