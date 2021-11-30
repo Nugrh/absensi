@@ -2,44 +2,64 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Http\Request;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use PHPUnit\Exception;
 
 class GithubController extends Controller
 {
-    public function redirectToProvider()
-    {
-        return Socialite::driver('github')->redirect();
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+
+    use AuthenticatesUsers;
+
+    /**
+     * Redirect ke provider masing masing untuk mendapat autentikasi
+     */
+    public function redirectToProvider($provider){ // $provider = /login/{provider}/
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function handleProviderCallback(){
-        try {
-            $user = Socialite::driver('github')->user();
-        } catch (Exception $e){
-            return redirect('login/github');
-        }
-
-        $authUser = $this->findOrCreateUser($user);
-
+    /**
+     * Memperoleh informasi User dari provider
+     */
+    public function handleProviderCallback($provider){
+        $user = Socialite::driver($provider)->user();
+        $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
 
         return redirect('/home');
     }
 
-    private function findOrCreateUser($githubUser){
-        if ($authUser = User::where('github_id', $githubUser->id)->first()){
+    /**
+     * Jika user telah terdaftar maka return user
+     * Selain itu, user akan di daftarkan
+     */
+    private function findOrCreateUser($user ,$provider){
+        $authUser = User::where('provider_id', $user->id)->first();
+
+        if ($authUser){
             return $authUser;
+        } else {
+            return User::create([
+                'name' => $user->name,
+                'email' => $user->email,
+                'password' => '', // default kosong
+                'provider' => $provider,
+                'provider_id' => $user->id,
+            ]);
         }
 
-        return User::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->github_id,
-            'avatar' => $githubUser->avatar,
-            'password' => encrypt('12345dummy'),
-        ]);
     }
 }

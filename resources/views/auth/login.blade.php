@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 pl-0">
+            <div class="col-md-6 pl-0">
                 <div class="card-white">
                     <div class="card-body border">
                         <div class="text-center">

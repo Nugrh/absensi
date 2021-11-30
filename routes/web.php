@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,5 +28,12 @@ Route::group(['prefix'=>'master-data'], function (){
     Route::get('/kelas', 'KelasController@index')->name('master-data.kelas');
 });
 
+// rute login wit' github
 Route::get('login/github', 'GithubController@redirectToProvider');
 Route::get('login/github/callback', 'GithubController@handleProviderCallback');
+
+// rute manage user dan undang
+Route::group(['prefix' => 'manage'], function(){
+    Route::get('/user','Manage\UserController@index')->name('manage.user');
+    Route::get('/add/form/invite','Manage\UserController@create')->name('manage.add.form.invite');
+});

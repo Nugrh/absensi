@@ -23,6 +23,7 @@
 <body>
     <div id="app">
         <main class="">
+            @include('layouts.nav')
             @yield('content')
         </main>
     </div>
