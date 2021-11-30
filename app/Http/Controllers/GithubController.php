@@ -24,42 +24,38 @@ class GithubController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Redirect ke provider masing masing untuk mendapat autentikasi
-     */
-    public function redirectToProvider($provider){ // $provider = /login/{provider}/
-        return Socialite::driver($provider)->redirect();
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
     }
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('github')->user();
+        } catch (Exception $e) {
+            return redirect('login/github');
+        }
 
-    /**
-     * Memperoleh informasi User dari provider
-     */
-    public function handleProviderCallback($provider){
-        $user = Socialite::driver($provider)->user();
-        $authUser = $this->findOrCreateUser($user, $provider);
+        $authUser = $this->findOrCreateUser($user);
+
         Auth::login($authUser, true);
 
         return redirect('/home');
     }
 
-    /**
-     * Jika user telah terdaftar maka return user
-     * Selain itu, user akan di daftarkan
-     */
-    private function findOrCreateUser($user ,$provider){
-        $authUser = User::where('provider_id', $user->id)->first();
-
-        if ($authUser){
+    private function findOrCreateUser($githubUser)
+    {
+        if($authUser = User::where('github_id',
+            $githubUser->id)->first()){
             return $authUser;
-        } else {
-            return User::create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'password' => '', // default kosong
-                'provider' => $provider,
-                'provider_id' => $user->id,
-            ]);
         }
 
+        return User::create([
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+            'avatar' => $githubUser->avatar,
+            'password' => encrypt('12345dummy'),
+        ]);
     }
 }
