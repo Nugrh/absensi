@@ -14,31 +14,35 @@
                         <form action="" method="post">
                             @csrf
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nama Kelas</label>
-                                        <input type="text" name="phone" id="" class="form-control" placeholder="Jam Masuk">
+                                        <input type="text" name="phone" id="" class="form-control" placeholder="Nama Kelas">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Walikelas</label>
-                                        <input type="text" name="phone" id="" class="form-control" placeholder="Jam Masuk">
+                                        <input type="text" name="phone" id="" class="form-control" placeholder="Walikelas">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Jurusan</label>
-                                        <option value="">
-                                            <select name="" id=""></select>
-                                        </option>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Pilih Jurusan</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Jumlah Siswa</label>
-                                        <input type="text" name="phone" id="" class="form-control" placeholder="Jam Masuk">
+                                        <input type="text" name="phone" id="" class="form-control" placeholder="Jumlah Siswa">
                                     </div>
+                                </div>
+                                <div class="mt-2 ml-3">
+                                    <button class="btn btn-outline-info">Add Class</button>
+                                    <a href="{{route('home')}}" class="btn btn-outline-secondary">Back To Home</a>
                                 </div>
                             </div>
                         </form>

@@ -20,7 +20,7 @@
                     <a href="{{ route('manage.lessons') }}" class="nav-link">Manage Lessons</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Manage Class</a>
+                    <a href="{{ route('manage.kelas') }}" class="nav-link">Manage Class</a>
                 </li>
             </ul>
 

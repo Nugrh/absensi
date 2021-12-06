@@ -34,6 +34,7 @@ Route::get('login/github/callback', 'GithubController@handleProviderCallback');
 
 // rute manage user dan lesson
 Route::group(['prefix' => 'manage'], function(){
+
 //    user
     Route::get('/user','Manage\UserController@index')->name('manage.user');
     Route::get('/add/form/invite','Manage\UserController@create')->name('manage.add.form.invite');
