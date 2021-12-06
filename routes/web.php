@@ -32,8 +32,18 @@ Route::group(['prefix'=>'master-data'], function (){
 Route::get('login/github', 'GithubController@redirectToProvider');
 Route::get('login/github/callback', 'GithubController@handleProviderCallback');
 
-// rute manage user dan undang
+// rute manage user dan lesson
 Route::group(['prefix' => 'manage'], function(){
+//    user
     Route::get('/user','Manage\UserController@index')->name('manage.user');
     Route::get('/add/form/invite','Manage\UserController@create')->name('manage.add.form.invite');
+
+//    lesson
+    Route::get('/lessons','Manage\LessonController@index')->name('manage.lessons');
+    Route::get('/add/form/lesson','Manage\LessonController@create')->name('manage.add.form.lesson');
+
+    //    kelas
+    Route::get('/kelas','Manage\ClassController@index')->name('manage.kelas');
+    Route::get('/add/form/kelas','Manage\ClassController@create')->name('manage.add.form.kelas');
+
 });
