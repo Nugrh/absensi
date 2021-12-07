@@ -22,6 +22,7 @@
                                         <th>Jumlah Siswa</th>
                                         <th>Options</th>
                                     </tr>
+
                                 </thead>
                                 <tr>
                                     <td colspan="5" class="text-center">

@@ -11,8 +11,9 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('store.lesson') }}" method="post">
+                        <form action="{{route('update.lesson', $lesson->id)}}" method="post">
                             @csrf
+                            @method('PATCH')
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -39,19 +40,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="name">Nama Pelajaran</label>
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Nama Pelajaran">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Nama Pelajaran" value="{{ $lesson->name }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="jam_masuk">Jam Masuk</label>
-                                        <input type="time" name="jam_masuk" id="jam_masuk" class="form-control" placeholder="Jam Masuk">
+                                        <input type="time" name="jam_masuk" id="jam_masuk" class="form-control" placeholder="Jam Masuk" value="{{ $lesson->jam_masuk }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="jam_selesai">Jam Selesai</label>
-                                        <input type="time" name="jam_selesai" id="jam_selesai" class="form-control" placeholder="Jam Selesai">
+                                        <input type="time" name="jam_selesai" id="jam_selesai" class="form-control" placeholder="Jam Selesai" value="{{ $lesson->jam_selesai }}">
                                     </div>
                                 </div>
                                 <div class="mt-2 ml-3">

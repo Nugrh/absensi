@@ -15,20 +15,39 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
-                                        <th>Nama Guru</th>
-                                        <th>Nama Pelajaran</th>
-                                        <th>Kelas</th>
-                                        <th>Jam</th>
-                                        <th>Options</th>
-                                    </tr>
-                                </thead>
                                 <tr>
-                                    <td colspan="5" class="text-center">
-                                        Sorry, currently lesson is not available, please add new lesson
-                                    </td>
+                                    <th>Nama Guru</th>
+                                    <th>Nama Pelajaran</th>
+                                    <th>Kelas</th>
+                                    <th>jam</th>
+                                    <th>Options</th>
                                 </tr>
+                                </thead>
+                                <tbody>
+                                @forelse ($lessons as $lesson)
+                                    <tr>
+                                        <td>{{$lesson->name}}</td>
+                                        <td>{{$lesson->teacher}}</td>
+                                        <td>{{$lesson->class}}</td>
+                                        <td>{{$lesson->jam_masuk}} - {{$lesson->jam_selesai}}</td>
+                                        <td>
+                                            <form action="{{route('destroy.lesson', $lesson->id)}}" method="POST">                                                @csrf
+                                                @method('DELETE')
+                                                <a href="{{route('edit.lesson',$lesson->id)}}" class="btn btn-info btn-sm">Edit lesson</a>
+                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            Sorry, currently lessons data is not available, please add new lessons
+                                        </td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
                             </table>
+                            {{$lessons->links()}}
                         </div>
                     </div>
                 </div>
