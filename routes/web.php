@@ -29,8 +29,8 @@ Route::group(['prefix'=>'master-data'], function (){
 });
 
 // rute login wit' github
-Route::get('login/github', 'GithubController@redirectToProvider');
-Route::get('login/github/callback', 'GithubController@handleProviderCallback');
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
 
 // rute manage user dan lesson
 Route::group(['prefix' => 'manage'], function(){
@@ -46,24 +46,30 @@ Route::group(['prefix' => 'manage'], function(){
     //    kelas
     Route::get('/kelas','Manage\ClassController@index')->name('manage.kelas');
     Route::get('/add/form/kelas','Manage\ClassController@create')->name('manage.add.form.kelas');
-
 });
 
 // Route group store data
-
 Route::group(['prefix' => 'store'], function(){
     route::post('lessons','Manage\LessonController@store')->name('store.lesson');
+    route::post('kelas','Manage\ClassController@store')->name('store.class');
 });
 
 // Route group edit data
-Route::group(['prefix' => 'edit'], function(){
-    route::get('lesson/{id}','Manage\LessonController@edit')->name('edit.lesson');
+Route::prefix('edit')->group(function (){
+    route::get('lesson/{lesson}','Manage\LessonController@edit')->name('edit.lesson');
+    route::get('kelas/{id}','Manage\ClassController@edit')->name('edit.class');
 });
 
+//Route::group(['prefix' => 'edit'], function(){
+//
+//});
+
 Route::group(['prefix' => 'update'], function () {
-    route::patch('lesson/{id}', 'Manage\LessonController@update')->name('update.lesson');
+    route::patch('lesson/{lesson}', 'Manage\LessonController@update')->name('update.lesson');
+    route::patch('kelas/{clas}', 'Manage\ClassController@update')->name('update.class');
 });
 
 Route::group(['prefix' => 'destroy'], function () {
-    route::delete('lesson/{id}', 'Manage\LessonController@destroy')->name('destroy.lesson');
+    route::delete('lesson/{lesson}', 'Manage\LessonController@destroy')->name('destroy.lesson');
+    route::delete('klass/{class}', 'Manage\ClassController@destroy')->name('destroy.class');
 });
