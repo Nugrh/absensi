@@ -24,11 +24,30 @@
                                     </tr>
 
                                 </thead>
-                                <tr>
-                                    <td colspan="5" class="text-center">
-                                        Sorry, currently lesson is not available, please add new lesson
-                                    </td>
-                                </tr>
+                                <tbody>
+                                @forelse($classes as $class)
+                                    <tr>
+                                        <td>{{ $class->name }}</td>
+                                        <td>{{ $class->walas }}</td>
+                                        <td>{{ $class->jurusan }}</td>
+                                        <td>{{ $class->jumlah }}</td>
+                                        <td>
+                                            <form action="" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="{{ route('edit.class', $class->id) }}" class="btn btn-outline-info btn-sm" type="submit">Edit</a>
+                                                <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                                            </form>
+                                        </td>
+                                        @empty
+                                        <td colspan="5" class="text-center">
+                                            Sorry, class is not available, please add new class
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                                @endforelse
+
                             </table>
                         </div>
                     </div>

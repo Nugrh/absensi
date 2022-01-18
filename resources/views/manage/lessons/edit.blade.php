@@ -31,9 +31,9 @@
                                         <label for="class">Kelas</label>
                                         <select name="class" id="class" class="form-control">
                                             <option value="" selected disabled>Pilih nama Kelas</option>
-                                            <option value="x">X</option>
-                                            <option value="xi">XI</option>
-                                            <option value="xii">XII</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
                                         </select>
                                     </div>
                                 </div>

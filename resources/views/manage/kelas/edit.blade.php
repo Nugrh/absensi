@@ -11,14 +11,15 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form id="store" action="{{ route('store.class') }}" method="post">
+                        <form action="{{route('update.class', $class->id)}}" method="post">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $class->id }}" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Nama Kelas</label>
                                         <select name="name" id="name" class="form-control">
-                                            <option value="x">pilih kelas</option>
+                                            <option>pilih kelas</option>
                                             <option value="x">X</option>
                                             <option value="xi">XI</option>
                                             <option value="xii">XII</option>
@@ -38,13 +39,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Jurusan</label>
-                                        <input type="text" name="jurusan" id="" class="form-control">
+                                        <input type="text" name="jurusan" id="" class="form-control" value="{{ $class->jurusan }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Jumlah Siswa</label>
-                                        <input type="text" name="jumlah" id="" class="form-control" placeholder="Jumlah Siswa">
+                                        <input type="text" name="jumlah" id="" class="form-control" placeholder="Jumlah Siswa" value="{{ $class->jumlah }}">
                                     </div>
                                 </div>
                                 <div class="mt-2 ml-3">
