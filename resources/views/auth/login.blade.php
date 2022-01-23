@@ -32,17 +32,18 @@
                             </div>
                         </div>
                         <div class="offset-md-3">
-                            <form action="" method="post">
+                            <form action="{{ route('login') }}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label for="" class="">Masukkan email</label>
-                                    <input type="email" name="" id="" class="form-control col-8" required>
+                                    <input type="email" name="email" id="" class="form-control col-8" value="{{ old('email') }}" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="d-flex justify-content-between col-8 p-0">
                                         <label for="" class="">Masukkan password</label>
                                         <label for="" class="text-primary">Lupa password?</label>
                                     </div>
-                                    <input type="password" name="" id="" class="form-control col-8" required>
+                                    <input type="password" name="password" id="" class="form-control col-8" required>
                                 </div>
                                 <div class="">
                                     <button type="submit" class="btn btn-info">Login</button>

@@ -29,7 +29,7 @@ class ClassController extends Controller
             'jumlah'    => 'required',
         ]);
 
-        $class = Clas::create([
+        Clas::create([
             'name'      => $request->name,
             'walas'     => $request->walas,
             'jurusan'   => $request->jurusan,

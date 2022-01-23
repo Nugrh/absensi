@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manage;
 use App\Lesson;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class LessonController extends Controller
 {
@@ -43,8 +44,6 @@ class LessonController extends Controller
         ]);
 
         $lessons = Lesson::create($request->all());
-
-//        dd($lessons);
         return redirect()->back();
     }
 
@@ -54,7 +53,7 @@ class LessonController extends Controller
 
         $lesson->update($request->all());
 
-        return redirect('manage/lessons');
+        return Redirect::route('manage.lessons');
     }
 
     public function destroy(Request $request, $id)
