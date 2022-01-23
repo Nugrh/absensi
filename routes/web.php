@@ -60,16 +60,12 @@ Route::prefix('edit')->group(function (){
     route::get('kelas/{id}','Manage\ClassController@edit')->name('edit.class');
 });
 
-//Route::group(['prefix' => 'edit'], function(){
-//
-//});
-
 Route::group(['prefix' => 'update'], function () {
     route::patch('lesson/{lesson}', 'Manage\LessonController@update')->name('update.lesson');
-    route::patch('kelas/{clas}', 'Manage\ClassController@update')->name('update.class');
+    route::patch('kelas/{id}', 'Manage\ClassController@update')->name('update.class');
 });
 
 Route::group(['prefix' => 'destroy'], function () {
     route::delete('lesson/{lesson}', 'Manage\LessonController@destroy')->name('destroy.lesson');
-    route::delete('klass/{class}', 'Manage\ClassController@destroy')->name('destroy.class');
+    route::delete('klass/{id}', 'Manage\ClassController@destroy')->name('destroy.class');
 });

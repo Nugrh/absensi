@@ -37,22 +37,7 @@ class ClassController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request, $id)
-    {
-        $clas = Clas::findOrFail($id);
 
-        $clas->update($request->all());
-
-        return redirect()->back();
-    }
-    public function destroy(Request $request, $id)
-    {
-        $clas = Clas::findOrFail($id);
-
-        $clas->delete($request->all());
-
-        return redirect()->back();
-    }
 
     public function edit($id)
     {
@@ -60,5 +45,23 @@ class ClassController extends Controller
 //        $class = Clas::findOrFail(1);
 
         return view('manage.kelas.edit', compact('class'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $class = Clas::findOrFail($id);
+
+        $class->update($request->all());
+
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $clas = Clas::findOrFail($id);
+
+        $clas->delete($request->all());
+
+        return redirect()->back();
     }
 }
