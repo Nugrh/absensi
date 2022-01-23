@@ -13,6 +13,7 @@
                     <div class="card-body">
                         <form action="{{route('update.class', $class->id)}}" method="post">
                             @csrf
+                            @method('PATCH')
                             <input type="hidden" name="id" value="{{ $class->id }}" >
                             <div class="row">
                                 <div class="col-md-6">
@@ -20,9 +21,9 @@
                                         <label for="name">Nama Kelas</label>
                                         <select name="name" id="name" class="form-control">
                                             <option>pilih kelas</option>
-                                            <option value="x">X</option>
-                                            <option value="xi">XI</option>
-                                            <option value="xii">XII</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
                                         </select>
                                     </div>
                                 </div>

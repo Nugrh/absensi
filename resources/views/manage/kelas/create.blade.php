@@ -18,10 +18,10 @@
                                     <div class="form-group">
                                         <label for="name">Nama Kelas</label>
                                         <select name="name" id="name" class="form-control">
-                                            <option value="x">pilih kelas</option>
-                                            <option value="x">X</option>
-                                            <option value="xi">XI</option>
-                                            <option value="xii">XII</option>
+                                            <option value="">pilih kelas</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
                                         </select>
                                     </div>
                                 </div>
@@ -30,8 +30,8 @@
                                         <label for="walas">Walikelas</label>
                                         <select name="walas" id="walas" class="form-control">
                                             <option value="">Pilih walikelas</option>
-                                            <option value="agus">Agus</option>
-                                            <option value="udin">Udin</option>
+                                            <option value="Agus">Agus</option>
+                                            <option value="Adin">Udin</option>
                                         </select>
                                     </div>
                                 </div>
