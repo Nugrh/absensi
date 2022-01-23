@@ -27,14 +27,6 @@ class LessonController extends Controller
 
     public function store(Request $request)
     {
-//        $this->validate($request,[
-//            'name' => ['required'],
-//            'teacher' => ['required'],
-//            'class' => ['required'],
-//            'jam_masuk' => ['required'],
-//            'jam_selesai' => ['required'],
-//        ]);
-
         $request->validate([
             'name' => ['required'],
             'teacher' => ['required'],
@@ -43,7 +35,7 @@ class LessonController extends Controller
             'jam_selesai' => ['required'],
         ]);
 
-        $lessons = Lesson::create($request->all());
+        Lesson::create($request->all());
         return redirect()->back();
     }
 
