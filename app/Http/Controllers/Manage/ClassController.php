@@ -11,7 +11,6 @@ class ClassController extends Controller
     // index
     public function index(){
         $classes = Clas::latest()->paginate(6);
-
         return view('manage.kelas.index', compact('classes'));
     }
 
@@ -21,7 +20,6 @@ class ClassController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'name'      => 'required',
             'walas'     => 'required',
@@ -39,9 +37,25 @@ class ClassController extends Controller
         return redirect()->back();
     }
 
+    public function update(Request $request, $id)
+    {
+        $clas = Clas::findOrFail($id);
+
+        $clas->update($request->all());
+
+        return redirect()->back();
+    }
+    public function destroy(Request $request, $id)
+    {
+        $clas = Clas::findOrFail($id);
+
+        $clas->delete($request->all());
+
+        return redirect()->back();
+    }
+
     public function edit($id)
     {
-
         $class = Clas::all()->find($id);
 //        $class = Clas::findOrFail(1);
 
