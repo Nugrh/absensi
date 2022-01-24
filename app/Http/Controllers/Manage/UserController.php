@@ -24,7 +24,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         $this->validate($request, [
            'name'       => 'bail|required|min:2',
            'email'      => 'required',
@@ -35,7 +34,6 @@ class UserController extends Controller
            'password'   => 'required|min:6',
            'roles'      => 'required|min:1',
         ]);
-
 
         $request->merge(
             ['password' => bcrypt(

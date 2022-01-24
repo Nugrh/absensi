@@ -30,9 +30,9 @@
                                 <tbody>
                                 @forelse($users as $user)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->roles }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>
                                             <a href="">Edit</a>
@@ -47,8 +47,6 @@
                                     </tr>
                                 @endforelse
                                 </tbody>
-
-
                             </table>
                         </div>
                     </div>

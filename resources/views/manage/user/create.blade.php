@@ -29,19 +29,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">User Name</label>
-                                        <input type="text" name="name" id="" class="form-control" placeholder="User name">
+                                        <input type="text" name="name" id="" class="form-control" required placeholder="User name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Phone</label>
-                                        <input type="text" name="phone" id="" class="form-control" placeholder="Phone">
+                                        <input type="tel" name="phone" id="" class="form-control" required placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Address</label>
-                                        <input type="text" name="address" id="" class="form-control" placeholder="Address">
+                                        <input type="text" name="address" id="" class="form-control" required placeholder="Address">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -57,24 +57,24 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="email" name="email" id="" class="form-control" placeholder="E-mail">
+                                        <input type="email" name="email" id="" class="form-control" required placeholder="E-mail">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Password</label>
-                                        <input type="password" name="password" id="" class="form-control" placeholder="password">
+                                        <input type="password" name="password" id="" class="form-control" required placeholder="password">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">Relogion</label>
+                                        <label for="">Religion</label>
                                         <select name="religion" class="form-control" id="">
                                             <option value="">Select youre religion</option>
-                                            <option value="islam">Islam</option>
-                                            <option value="kristen">Kristen</option>
-                                            <option value="hindu">Hindu</option>
-                                            <option value="budha">Budha</option>
+                                            <option value="Islam">Islam</option>
+                                            <option value="Kristen">Kristen</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Budha">Budha</option>
                                         </select>
                                     </div>
                                 </div>
