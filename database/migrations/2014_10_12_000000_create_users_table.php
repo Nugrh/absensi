@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('github_id')->nullable();
             $table->string('nisn')->nullable();
+            $table->string('nuptk')->nullable();
             $table->string('name');
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,7 +26,7 @@ class CreateUsersTable extends Migration
 
             // tugas pa fajar
             $table->string('address')->nullable();
-            $table->string('telp')->nullable();
+            $table->string('phone')->nullable();
             $table->string('gender')->nullable();
             $table->string('religion')->nullable();
 

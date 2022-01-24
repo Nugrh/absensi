@@ -27,11 +27,28 @@
                                     <th>Options</th>
                                 </tr>
                                 </thead>
-                                <tr>
-                                    <td colspan="5" class="text-center">
-                                        Sorry, currently user data is not available, please invite new users
-                                    </td>
-                                </tr>
+                                <tbody>
+                                @forelse($users as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td>
+                                            <a href="">Edit</a>
+                                            <a href="">Delete</a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            Sorry, currently user data is not available, please invite new users
+                                        </td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+
+
                             </table>
                         </div>
                     </div>

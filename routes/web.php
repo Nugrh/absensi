@@ -34,7 +34,6 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 
 // rute manage user dan lesson
 Route::group(['prefix' => 'manage'], function(){
-
 //    user
     Route::get('/user','Manage\UserController@index')->name('manage.user');
     Route::get('/add/form/invite','Manage\UserController@create')->name('manage.add.form.invite');
@@ -52,6 +51,7 @@ Route::group(['prefix' => 'manage'], function(){
 Route::group(['prefix' => 'store'], function(){
     route::post('lessons','Manage\LessonController@store')->name('store.lesson');
     route::post('kelas','Manage\ClassController@store')->name('store.class');
+    route::post('user','Manage\UserController@store')->name('store.user');
 });
 
 // Route group edit data

@@ -11,7 +11,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="{{ route('store.user') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-md-4">
@@ -69,12 +69,23 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Relogion</label>
-                                        <select name="gender" class="form-control" id="">
+                                        <select name="religion" class="form-control" id="">
                                             <option value="">Select youre religion</option>
                                             <option value="islam">Islam</option>
                                             <option value="kristen">Kristen</option>
                                             <option value="hindu">Hindu</option>
                                             <option value="budha">Budha</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="roles">Akses:</label>
+                                        <select name="roles" id="roles" class="form-control">
+                                            <option value="">PLease select one</option>
+                                            @foreach($roles as $role)
+                                                <option value="{{ $role }}">{{ $role }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
