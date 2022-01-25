@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
         // ketua
         $ketua = factory(User::class)->create([
             'nisn'      => '199312102018081001',
+            'phone'     => '0',
             'name'     => 'Ketua',
             'email'    => 'ketua@albahri.sch.id',
             'email_verified_at' => now(),
@@ -30,6 +31,7 @@ class UsersTableSeeder extends Seeder
         // walikelas
         $walikelas = factory(User::class)->create([
             'nisn'      => '199312102018081002',
+            'phone'     => '0',
             'name'     => 'Wali Kelas',
             'email'    => 'walikelas@albahri.sch.id',
             'email_verified_at' => now(),
@@ -45,6 +47,7 @@ class UsersTableSeeder extends Seeder
         // siswa
         $siswa = factory(User::class)->create([
             'nisn'      => '199312102018081004',
+            'phone'     => '0',
             'name'     => 'Siswa',
             'email'    => 'siswa@albahri.sch.id',
             'email_verified_at' => now(),

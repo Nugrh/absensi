@@ -18,11 +18,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'github_id',
         'nisn',
+        'nuptk',
+        'email',
+        'avatar',
+        'address',
+        'phone',
         'password',
-        'provider',
-        'provider_id',
+        'religion',
+        'roles',
+        'github_id',
     ];
 
     /**
@@ -42,4 +48,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }
