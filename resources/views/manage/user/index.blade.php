@@ -38,7 +38,8 @@
                                             <form action="" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{ route('edit.delete', $class->id) }}" class="btn btn-outline-info btn-sm" type="submit">Edit</a>
+{{--                                                <a href="{{ route('edit.delete', $user->id) }}" class="btn btn-outline-info btn-sm" type="submit">Edit</a>--}}
+                                                <a href="" class="btn btn-outline-info btn-sm" type="submit">Edit</a>
                                                 <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
                                             </form>
                                         </td>
