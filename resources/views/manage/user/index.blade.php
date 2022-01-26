@@ -32,23 +32,18 @@
                                     <tr>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->roles }}</td>
+                                        <td>{{ $user->roles->implode('name', ', ') }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>
                                             <form action="" method="post">
                                                 @csrf
                                                 @method('DELETE')
-{{--                                                <a href="{{ route('edit.delete', $user->id) }}" class="btn btn-outline-info btn-sm" type="submit">Edit</a>--}}
-                                                <a href="" class="btn btn-outline-info btn-sm" type="submit">Edit</a>
+                                                <a href="{{ route('edit.user', $user->id) }}" class="btn btn-outline-info btn-sm" type="submit">Edit</a>
                                                 <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
                                             </form>
                                         </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="5" class="text-center">
-                                            Sorry, currently user data is not available, please invite new users
-                                        </td>
+                                        @empty
+                                            <td colspan="5">No record found</td>
                                     </tr>
                                 @endforelse
                                 </tbody>

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'password',
         'religion',
         'roles',
+        'gender',
         'github_id',
     ];
 
