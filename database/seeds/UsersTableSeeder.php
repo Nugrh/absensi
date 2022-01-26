@@ -32,8 +32,8 @@ class UsersTableSeeder extends Seeder
         $walikelas = factory(User::class)->create([
             'nisn'      => '199312102018081002',
             'phone'     => '0',
-            'name'     => 'Wali Kelas',
-            'email'    => 'walikelas@albahri.sch.id',
+            'name'      => 'Wali Kelas',
+            'email'     => 'walikelas@albahri.sch.id',
             'email_verified_at' => now(),
             'password' => bcrypt('absensi'),
         ]);

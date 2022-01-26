@@ -11,10 +11,9 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('update.class', $class->id)}}" method="post">
+                        <form action="{{route('update.user', $class->id)}}" method="post">
                             @csrf
                             @method('PATCH')
-                            <input type="hidden" name="id" value="{{ $class->id }}" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

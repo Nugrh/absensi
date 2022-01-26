@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Role;
-//use http\Client\Curl\User;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,13 +12,22 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(8);
+        $users = User::latest()->paginate(6);
         return view('manage.user.index', compact('users'));
     }
+
     public function create()
     {
         $roles = Role::pluck('name', 'id');
         return view('manage.user.create', compact('roles'));
+    }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        $roles = Role::pluck('name', 'id');
+
+        return view('manage.user.edit', compact('user', 'roles'));
     }
 
     public function store(Request $request)
@@ -40,6 +48,7 @@ class UserController extends Controller
                 $request->get('password'))
             ]
         );
+
         if ($user = User::create($request->except('roles'))){
             $user->syncRoles($request->get('roles'));
             flash()->success('Pengguna berhasil ditambahkan');
@@ -49,4 +58,15 @@ class UserController extends Controller
 
         return Redirect::back();
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->fill($request->except('roles'));
+        $user->save();
+        $user->syncRoles($request->get('roles'));
+
+        return Redirect::back();
+    }
+
 }

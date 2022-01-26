@@ -22,15 +22,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// rute login wit' github
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
 // Route group master data
 Route::group(['prefix'=>'master-data'], function (){
     Route::get('/siswa', 'SiswaController@index')->name('master-data.siswa');
     Route::get('/kelas', 'KelasController@index')->name('master-data.kelas');
 });
-
-// rute login wit' github
-Route::get('login/github', 'Auth\LoginController@redirectToProvider');
-Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
 
 // rute manage user dan lesson
 Route::group(['prefix' => 'manage'], function(){
@@ -58,11 +58,13 @@ Route::group(['prefix' => 'store'], function(){
 Route::prefix('edit')->group(function (){
     route::get('lesson/{lesson}','Manage\LessonController@edit')->name('edit.lesson');
     route::get('kelas/{id}','Manage\ClassController@edit')->name('edit.class');
+    route::get('user/{id}','Manage\UserController@edit')->name('edit.user');
 });
 
 Route::group(['prefix' => 'update'], function () {
     route::patch('lesson/{lesson}', 'Manage\LessonController@update')->name('update.lesson');
     route::patch('kelas/{id}', 'Manage\ClassController@update')->name('update.class');
+    route::patch('user/{id}', 'Manage\UserController@update')->name('update.user');
 });
 
 Route::group(['prefix' => 'destroy'], function () {

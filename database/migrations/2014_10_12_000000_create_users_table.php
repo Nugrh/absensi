@@ -29,7 +29,6 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('gender')->nullable();
             $table->string('religion')->nullable();
-            $table->string('roles')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

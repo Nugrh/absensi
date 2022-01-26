@@ -26,7 +26,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-4">`
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">NUPTK</label>
                                         <input type="text" name="nuptk" id="" class="form-control{{ $errors->has('nuptk') ? ' is-invalid' : '' }}" placeholder="NUPTK">
